@@ -1,0 +1,4 @@
+author: "Shroopy"
+delete-after: True
+changes:
+  - bugfix: "Fixed the NT M-96 not being permit-locked."
