@@ -37,11 +37,6 @@
 	var/saved_channel
 	/// Speech suffuxes used for force_say after "-". Defaults to hurt_phrases
 	var/list/alter_phrases
-	// OCULIS EDIT ADDITION START
-	/// Stores whichever channel the window was opened with
-	/// Ideally this would instead be the window's selected channel but that will require a more involved change
-	var/initial_channel
-	// OCULIS EDIT ADDITION END
 
 /** Creates the new input window to exist in the background. */
 /datum/tgui_say/New(client/client, id)
@@ -97,8 +92,7 @@
 	if(!payload?["channel"])
 		CRASH("No channel provided to an open TGUI-Say")
 	window_open = TRUE
-	if(payload["channel"] != OOC_CHANNEL && payload["channel"] != ADMIN_CHANNEL /* && payload["channel"] != LOOC_CHANNEL */) // NOVA EDIT CHANGE (Add LOOC_CHANNEL) // OCULIS EDIT CHANGE: remove LOOC_CHANNEL check
-		initial_channel = payload["channel"] // OCULIS EDIT ADDITION
+	if(payload["channel"] != OOC_CHANNEL && payload["channel"] != ADMIN_CHANNEL && payload["channel"] != PRAY_CHANNEL && payload["channel"] != LOOC_CHANNEL) // NOVA EDIT CHANGE - ORIGINAL: if(payload["channel"] != OOC_CHANNEL && payload["channel"] != ADMIN_CHANNEL && payload["channel"] != PRAY_CHANNEL)
 		start_thinking()
 	if(!client.typing_indicators)
 		log_speech_indicators("[key_name(client)] started typing at [loc_name(client.mob)], indicators DISABLED.")
@@ -113,7 +107,6 @@
 	stop_thinking()
 	if(!client.typing_indicators)
 		log_speech_indicators("[key_name(client)] stopped typing at [loc_name(client.mob)], indicators DISABLED.")
-	initial_channel = null // OCULIS EDIT ADDITION
 
 /**
  * The equivalent of ui_act, this waits on messages from the window
