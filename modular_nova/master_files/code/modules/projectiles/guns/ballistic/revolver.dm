@@ -4,7 +4,7 @@
 /obj/item/gun/ballistic/revolver/russian/Initialize(mapload)
 	. = ..()
 	if(mapload)
-		new /obj/item/gun/ballistic/revolver/russian/soul(get_turf(src))
+		new /obj/item/gun/ballistic/revolver/sol(get_turf(src))
 		return INITIALIZE_HINT_QDEL
 
 /obj/item/gun/ballistic/revolver/russian/soul/Initialize(mapload)
