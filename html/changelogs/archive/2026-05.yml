@@ -18,3 +18,8 @@
   - rscadd: Eye covering preferences to the Scarred Eye quirk.
   Spacemanspark:
   - rscadd: New hairstyles for Tajara, ported from Paradise!
+2026-05-10:
+  vinylspiders:
+  - bugfix: fixes a few instances of crowbar deconstruction not working for certain
+      items
+  - refactor: extends the tool_blocker element to support secondary tool_acts
