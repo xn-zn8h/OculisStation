@@ -1,0 +1,4 @@
+author: "Z Man Wit Z Plan"
+delete-after: True
+changes:
+  - config: "made the black market trader be a guaranteed spawn every round."
